@@ -1,10 +1,8 @@
-import React from 'react'
-import {Text, View} from 'react-native';
+import React from 'react';
+import {Text} from 'react-native';
 
 const SearchBtn = () => {
-  return (
-    <Text>SearchBtn</Text>
-  )
-}
+  return <Text>SearchBtn</Text>;
+};
 
-export default SearchBtn
+export default SearchBtn;

@@ -1,18 +1,29 @@
-import React, {useState, useEffect, TextInput} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
 import SearchBtn from '../components/SearchBtn';
-import request from '../utils';
+import useSearchApi from '../hooks/useSearchApi';
 
 const RecycleList = () => {
-  const [items, setItems] = useState([]);
-  useEffect(() => {
-    request('sony').then(({data}) => setItems(Object.entries(data.products)));
-  }, []);
+  const {data, isLoaded} = useSearchApi('sony', []);
 
   return (
     <View>
-      <SearchBtn />
-      <Text>list</Text>
+      {isLoaded ? (
+        <>
+          <SearchBtn />
+          <>
+            {data?.products?.map(item => (
+              <Text>
+                {item.title}
+                {'\n'}
+                ------------
+              </Text>
+            ))}
+          </>
+        </>
+      ) : (
+        <Text>Loading...</Text>
+      )}
     </View>
   );
 };
