@@ -1,7 +1,7 @@
 import {useGetRequest} from './useGetRequest';
 
 const useSearchApi = (searchQuery, deps) => {
-  if (searchQuery) {
+  if (!searchQuery) {
     searchQuery = 'ANYTHING';
   }
   const {data, error, isLoaded} = useGetRequest(

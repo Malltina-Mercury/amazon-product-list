@@ -21,7 +21,6 @@ export const useGetRequest = (url, params?, deps = []) => {
         setData(response?.data);
         setIsLoaded(true);
       } catch (e) {
-        console.error(e);
         setError(e);
       }
     };
