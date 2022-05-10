@@ -1,6 +1,6 @@
 import React from 'react';
-import {Text, View, ScrollView, StyleSheet} from 'react-native';
-import RecycleList from './src/views/RecycleList';
+import {StyleSheet, View} from 'react-native';
+import RecycleList from '../views/RecycleList';
 
 const App = () => {
   return (
