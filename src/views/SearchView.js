@@ -14,7 +14,7 @@ const SearchView = () => {
 
   const onSubmitSearchQuery = useCallback(() => {
     setSubmittedQuery(searchQuery);
-  }, []);
+  }, [searchQuery]);
 
   return (
     <>
