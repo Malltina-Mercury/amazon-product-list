@@ -2,7 +2,7 @@ import {useGetRequest} from './useGetRequest';
 
 const useSearchApi = (searchQuery, deps) => {
   const {data, error, isLoaded} = useGetRequest(
-    'search/v2',
+    '/search/v2',
     {
       q: searchQuery,
     },
