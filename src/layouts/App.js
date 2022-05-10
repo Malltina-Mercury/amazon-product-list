@@ -1,17 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import RecycleList from '../views/RecycleList';
+import SearchView from '../views/SearchView';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <RecycleList />
+      <SearchView />
     </View>
   );
 };
-
-
-
 
 const styles = StyleSheet.create({
   container: {
