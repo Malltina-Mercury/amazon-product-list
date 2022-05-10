@@ -2,6 +2,7 @@ import React, {useCallback, useState} from 'react';
 import useSearchApi from '../hooks/useSearchApi';
 import {StyleSheet, Text} from 'react-native';
 import SearchInput from '../components/SearchInput';
+import SearchList from '../components/SearchList';
 
 const SearchView = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,18 +25,7 @@ const SearchView = () => {
         onSubmit={onSubmitSearchQuery}
       />
       {isLoaded ? (
-        <>
-          <Text>{searchQuery}</Text>
-          {data?.products?.map((item, i) => {
-            return (
-              <Text key={i}>
-                {item.title}
-                {'\n'}
-                ------------
-              </Text>
-            );
-          })}
-        </>
+        <SearchList products={data?.products} />
       ) : (
         <Text>Loading...</Text>
       )}
