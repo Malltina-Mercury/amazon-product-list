@@ -1,16 +1,23 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
 import SearchBtn from '../components/SearchBtn';
 import useSearchApi from '../hooks/useSearchApi';
 
 const RecycleList = () => {
-  const {data, isLoaded} = useSearchApi('sony', []);
+
+  const [searchInput, setSearchInput] = useState('')
+
+  const {data, isLoaded} = useSearchApi(searchInput, []);
+
+  console.log(searchInput)
+
+
 
   return (
-    <View>
+    <View style={styles.item}>
       {isLoaded ? (
         <>
-          <SearchBtn />
+          <SearchBtn setSearchInput={setSearchInput} searchInput={searchInput}/>
           <>
             {data?.products?.map(item => (
               <Text>
@@ -28,4 +35,11 @@ const RecycleList = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  item: {
+    padding: 1,
+    fontSize: 20,
+    marginTop: 15,
+  },
+});
 export default RecycleList;

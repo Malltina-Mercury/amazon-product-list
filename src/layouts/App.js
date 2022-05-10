@@ -10,9 +10,13 @@ const App = () => {
   );
 };
 
+
+
+
 const styles = StyleSheet.create({
   container: {
-    padding: 50,
+    padding: 0,
+    margin: 0,
     flex: 1,
   },
   item: {

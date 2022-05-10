@@ -1,27 +1,34 @@
-import React from 'react';
-import {StyleSheet, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, TextInput, Button} from 'react-native';
 
-const SearchBtn = () => {
-  const [number, onChangeNumber] = React.useState(null);
+const SearchBtn = ({setSearchInput, searchInput}) => {
+
+  const eventHandler = text => {
+    setSearchInput(text);
+  };
 
   return (
     <>
       <TextInput
-        style={styles.input}
-        onChangeText={onChangeNumber}
-        value={number}
-        placeholder="useless placeholder"
+        style={styles.textInputStyle}
+        placeholder="Search Here ..."
         keyboardType="web-search"
+        value={searchInput}
+        underlineColorAndroid="transparent"
+        onChangeText={text => eventHandler(text)}
       />
     </>
   );
 };
 const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    margin: 12,
+  textInputStyle: {
+    height: 50,
+    marginBottom: 30,
     borderWidth: 1,
-    padding: 10,
+    paddingLeft: 20,
+    borderColor: '#009688',
+    backgroundColor: 'white',
+    borderRadius: 30,
   },
 });
 
