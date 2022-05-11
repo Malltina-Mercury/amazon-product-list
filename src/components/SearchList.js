@@ -1,18 +1,12 @@
 import React from 'react';
-import {Text} from 'react-native';
+import ProductCard from './card/ProductCard';
 
 const SearchList = ({products}) => {
   return (
     <>
-      {products?.map((item, i) => {
-        return (
-          <Text key={i}>
-            {item.title}
-            {'\n'}
-            ------------
-          </Text>
-        );
-      })}
+      {products?.map((item, i) => (
+        <ProductCard item={item} key={i} />
+      ))}
     </>
   );
 };
