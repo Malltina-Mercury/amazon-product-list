@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import request from '../helpers/api';
+import waitForMilliseconds from '../helpers/waitForMilliseconds';
 
 export const useGetRequest = (url, params?, deps = []) => {
   const [data, setData] = useState();
@@ -10,13 +11,17 @@ export const useGetRequest = (url, params?, deps = []) => {
     const fetchData = async () => {
       setIsLoaded(false);
       try {
-        const {data: response} = await request.get(url, {
-          params: params,
-        });
-        setData(response);
+        let response;
+        do {
+          response = await request.get(url, {
+            params: params,
+          });
+          await waitForMilliseconds(response?.data?.after || 1000);
+        } while (response.status !== 200);
+        setData(response?.data);
         setIsLoaded(true);
       } catch (e) {
-        // setError(e.message)
+        setError(e);
       }
     };
 
