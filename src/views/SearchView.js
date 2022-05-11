@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import useSearchApi from '../hooks/useSearchApi';
-import {StyleSheet, Text} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import SearchInput from '../components/SearchInput';
 import SearchList from '../components/SearchList';
 
@@ -24,11 +24,13 @@ const SearchView = () => {
         onChange={onChangeSearchQuery}
         onSubmit={onSubmitSearchQuery}
       />
-      {isLoaded ? (
-        <SearchList products={data?.products} />
-      ) : (
-        <Text>Loading...</Text>
-      )}
+      <View style={{ paddingHorizontal:10}}>
+        {isLoaded ? (
+          <SearchList products={data?.products} />
+        ) : (
+          <Text>Loading...</Text>
+        )}
+      </View>
     </>
   );
 };

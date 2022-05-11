@@ -13,21 +13,21 @@ function ProductRating({rating}) {
             startingValue={rating.stars}
             style={ styles.rating }
             />
-            <Text style={styles.caption}>{rating.people}</Text>
+            <Text style={styles.textcaption}>{rating.people}</Text>
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    rating:{
-        textAlign:'left',
-    },
     container:{
         flexDirection: "row",
         alignItems: 'center',
     },
-    caption: {
-        fontSize:8,
+    rating:{
+        textAlign:'left',
+    },
+    textcaption: {
+        fontSize:10,
         marginHorizontal:10,
     }
 })
