@@ -9,7 +9,7 @@ const App = () => {
     </View>
   );
 };
-
+//test
 const styles = StyleSheet.create({
   container: {
     padding: 0,
