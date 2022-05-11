@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import {View,Text,TextInput,StyleSheet,Image} from "react-native";
+import React from "react";
+import {View,Text,StyleSheet,Image} from "react-native";
+import ProductRating from "./ProductRating";
 
 const ProductCard = ({item}) => {
     const {id,title, price:{main, deal}} = item;
@@ -10,12 +11,12 @@ const ProductCard = ({item}) => {
             style={styles.cardContainer}
           >
               <View style={styles.details}>
-              {/* <ProductRating />       */}
+                <ProductRating rating={item.review}/>      
                 <Text numberOfLines={2} style={styles.title}>{title} </Text>
                 {deal && <Text style={styles.PriaceDeal}>Deal: ${deal}</Text>}
                 <Text style={styles.priceMain}>${main}</Text>
               </View>
-              <View style={styles.thumbnail1}>
+              <View style={styles.image}>
                 <Image 
                     style={styles.thumbnail}
                     source={{
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     fontSize:8,
     color: 'red',
   },
-  thumbnail1: {
+  image: {
     flexBasis: '25%',
   },
   thumbnail: {
