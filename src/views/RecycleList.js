@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View} from 'react-native';
+import ProductCard from '../components/card/ProductCard';
 import SearchBtn from '../components/SearchBtn';
 import useSearchApi from '../hooks/useSearchApi';
 
@@ -13,11 +14,7 @@ const RecycleList = () => {
           <SearchBtn />
           <>
             {data?.products?.map(item => (
-              <Text>
-                {item.title}
-                {'\n'}
-                ------------
-              </Text>
+              <ProductCard item={item}/>
             ))}
           </>
         </>
