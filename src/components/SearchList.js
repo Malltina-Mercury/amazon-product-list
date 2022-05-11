@@ -1,13 +1,15 @@
 import React from 'react';
 import ProductCard from './card/ProductCard';
+import {FlatList, View} from 'react-native';
 
 const SearchList = ({products}) => {
   return (
-    <>
-      {products?.map((item, i) => (
-        <ProductCard item={item} key={i} />
-      ))}
-    </>
+    <View>
+      <FlatList
+        data={products}
+        renderItem={item => <ProductCard item={item} />}
+      />
+    </View>
   );
 };
 
